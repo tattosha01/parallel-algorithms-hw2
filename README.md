@@ -1,4 +1,6 @@
-launch from the root:<br/>
+launch instructions:<br/>
+1) edit file src/jmh/kotlin/BFSBenchmark.kt, uncomenting the desired bfs for testing;<br/>
+2) from the project root execute the next:<br/>
 ```./gradlew jmh```
 
 ```
