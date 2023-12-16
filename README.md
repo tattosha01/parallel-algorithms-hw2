@@ -1,3 +1,6 @@
+launch from the root:<br/>
+```./gradlew jmh```
+
 ```
 Benchmark                 (index)  Mode  Cnt   Score   Error  Units
 BFSBenchmark.sequenceBFS        0  avgt       20.895           s/op
