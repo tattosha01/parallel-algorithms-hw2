@@ -35,6 +35,5 @@ application {
 }
 
 jmh {
-    jvmArgs.add("")
     jvmArgsAppend.addAll("-Xms10G", "-Xmx10G")
 }

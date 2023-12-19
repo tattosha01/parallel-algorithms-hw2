@@ -16,6 +16,7 @@ import org.openjdk.jmh.annotations.Scope
 import org.openjdk.jmh.annotations.Setup
 import org.openjdk.jmh.annotations.State
 import org.openjdk.jmh.annotations.Warmup
+import org.openjdk.jmh.infra.Blackhole
 import java.util.concurrent.TimeUnit
 
 private const val X = 450
@@ -28,49 +29,53 @@ private const val COUNT_TEST = 5
 @OutputTimeUnit(TimeUnit.SECONDS)
 @Fork(value = 1)
 @Warmup(iterations = 1)
-@Measurement(iterations = 1)
+@Measurement(iterations = 5)
 open class BFSBenchmark {
     private lateinit var g: PGraph
     private lateinit var v: IntArray
-    
+
     @Param("0", "1", "2", "3", "4")
     var index = 0
-    
+
     @Setup
     fun setup() {
         g = GraphGenerator.generateGraph(listOf(X, Y, Z))
         v = IntArray(COUNT_TEST) { it * (Z / COUNT_TEST) * X * Y }
     }
-    
+
     //@Benchmark
-    //fun sequenceBFS() {
-        //with(SequenceBFS) {
-            //println("\nRunning ${SequenceBFS::class.simpleName} with index=$index, node=${v[index]}...")
-            //g.findDistances(v[index])
-        //}
+    //fun sequenceBFS(blackhole: Blackhole) { 
+        //blackhole.consume(
+            //with(SequenceBFS) { 
+                //g.findDistances(v[index]) 
+            //}
+        //)
     //}
 
     //@Benchmark
-    //fun parallelBFSbyCAS() {
-        //with(ParallelBFSbyCAS) {
-            //println("\nRunning ${ParallelBFSbyCAS::class.simpleName} with arg=$index, node=${v[index]}...")
-            //g.findDistances(v[index])
-        //}
+    //fun parallelBFSbyCAS(blackhole: Blackhole) { 
+        //blackhole.consume(
+            //with(ParallelBFSbyCAS) { 
+                //blackhole.consume(g.findDistances(v[index])) 
+            //}
+        //)
     //}
 
     //@Benchmark
-    //fun parallelBFSbyRAC1() {
-        //with(ParallelBFSbyRAC1) {
-            //println("\nRunning ${ParallelBFSbyRAC1::class.simpleName} with arg=$index, node=${v[index]}...")
-            //g.findDistances(v[index])
-        //}
+    //fun parallelBFSbyRAC1(blackhole: Blackhole) { 
+        //blackhole.consume(
+            //with(ParallelBFSbyRAC1) { 
+                //blackhole.consume(g.findDistances(v[index])) 
+            //}
+        //)
     //}
-    
+
     //@Benchmark
-    //fun parallelBFSbyRAC2() {
-        //with(ParallelBFSbyRAC2) {
-            //println("\nRunning ${ParallelBFSbyRAC2::class.simpleName} with arg=$index, node=${v[index]}...")
-            //g.findDistances(v[index])
-        //}
+    //fun parallelBFSbyRAC2(blackhole: Blackhole) { 
+        //blackhole.consume(
+            //with(ParallelBFSbyRAC2) { 
+                //blackhole.consume(g.findDistances(v[index]))
+            //}
+        //)
     //}
 }
