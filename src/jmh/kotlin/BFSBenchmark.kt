@@ -45,37 +45,37 @@ open class BFSBenchmark {
 
     //@Benchmark
     //fun sequenceBFS(blackhole: Blackhole) { 
-        //blackhole.consume(
-            //with(SequenceBFS) { 
-                //g.findDistances(v[index]) 
-            //}
-        //)
+    //    blackhole.consume(
+    //        with(SequenceBFS) { 
+    //            g.findDistances(v[index]) 
+    //        }
+    //    )
     //}
 
     //@Benchmark
     //fun parallelBFSbyCAS(blackhole: Blackhole) { 
-        //blackhole.consume(
-            //with(ParallelBFSbyCAS) { 
-                //blackhole.consume(g.findDistances(v[index])) 
-            //}
-        //)
+    //    blackhole.consume(
+    //        with(ParallelBFSbyCAS) { 
+    //            blackhole.consume(g.findDistances(v[index])) 
+    //        }
+    //    )
     //}
 
     //@Benchmark
     //fun parallelBFSbyRAC1(blackhole: Blackhole) { 
-        //blackhole.consume(
-            //with(ParallelBFSbyRAC1) { 
-                //blackhole.consume(g.findDistances(v[index])) 
-            //}
-        //)
+    //    blackhole.consume(
+    //        with(ParallelBFSbyRAC1) { 
+    //            blackhole.consume(g.findDistances(v[index])) 
+    //        }
+    //    )
     //}
 
     //@Benchmark
     //fun parallelBFSbyRAC2(blackhole: Blackhole) { 
-        //blackhole.consume(
-            //with(ParallelBFSbyRAC2) { 
-                //blackhole.consume(g.findDistances(v[index]))
-            //}
-        //)
+    //    blackhole.consume(
+    //        with(ParallelBFSbyRAC2) { 
+    //            blackhole.consume(g.findDistances(v[index]))
+    //        }
+    //    )
     //}
 }
