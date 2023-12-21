@@ -43,10 +43,6 @@ suspend inline fun pfilter(
 ): IntArray {
     val filtered = IntArray(r - l + 1)
     
-    // pmap(filtered, 0, filtered.size - 1) { i ->
-    //     if (predicate(i)) 1 else 0
-    // }
-
     pfor(0, filtered.size - 1) { i ->
         if (predicate(i)) filtered[i] = 1
     }
@@ -82,7 +78,7 @@ suspend fun pscan(
     }
 
     // pscan(sums, 0, sums.size - 1, f)
-
+    // scanSerial (preferable to pscan on such dimension of task(work) because one frontier is enough small)
     scanSerial(sums, 0, sums.size - 1, 0, f)
 
     pfor(0, sumsSize - 1) { iBlock ->
